@@ -1,0 +1,314 @@
+// Visual_servoing.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <opencv2/aruco.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/imgproc.hpp>
+#include <Eigen/Dense>
+#include <vector>
+
+int main()
+{
+	//DETECT ARUCO MARKER
+	//OPEN THE CAMERA
+	cv::VideoCapture cap(0);
+
+	//CHECK IF CAMERA OPENED SUCCESFULLY
+	if (!cap.isOpened())
+	{
+		std::cout << "Error abriendo la cámara" << std::endl;
+		return -1;
+	}
+
+	//LOAD THE DICTIONARY TO USE
+
+	cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_7X7_50);
+
+	while (1)
+	{
+		cv::Mat frame;
+		int ng1;
+		int ug1;
+		int ug2;
+		int ng2;
+		int ug3;
+		int ng3;
+		int ug4;
+		int ng4;
+
+		int ug;
+		int ng;
+
+		int keypress = cv::waitKey(25);
+		bool vs = false;
+		bool vk = false;
+
+		//CAPTURE FRAME
+		cap >> frame;
+
+		//If frame is empty, break
+		if (frame.empty())
+		{
+			break;
+		}
+
+	
+
+		//INITIALIZE THE DETECTOR PARAMETERS USING DEFAULT VALUES
+		cv::Ptr<cv::aruco::DetectorParameters> parameters = cv::aruco::DetectorParameters::create();
+
+		
+
+		//VECTORS THAT WOULD CONTAIN THE DETECTED MARKER CORNERS AND THE REJECTED CANDIDATES
+		std::vector<std::vector<cv::Point2f>> markerCorners, rejectCandidates;
+
+		//SAVE THE MARKER ID
+		std::vector<int> markerIds;
+
+		//Detect the markers in the image
+		cv::aruco::detectMarkers(frame, dictionary, markerCorners, markerIds, parameters, rejectCandidates);
+
+	
+		
+	
+
+
+		if (markerCorners.empty())
+		{
+			//std::cout << "No hay marca" << std::endl;
+		}
+		else
+		{
+			/*
+			//Extracción de esquinas
+			cv::Point p1 = markerCorners[0].at(0);
+			cv::Point p2 = markerCorners[0].at(1);
+			cv::Point p3 = markerCorners[0].at(2);
+			cv::Point p4 = markerCorners[0].at(3);
+
+			//Conversión de std::vector a Eigen para hacer cálculos
+			Eigen::RowVector2d point1;
+			Eigen::RowVector2d point2;
+			Eigen::RowVector2d point3;
+			Eigen::RowVector2d point4;
+
+			point1 << p1.x, p1.y;
+			point2 << p2.x, p2.y;
+			point3 << p3.x, p3.y;
+			point4 << p4.x, p4.y;
+
+			//Centroide para 4 puntos
+			ug = (p1.x + p2.x + p3.x + p4.x) / 4;
+			ng = (p1.y + p2.y + p3.y + p4.y) / 4;
+			cv::Point centroide = cv::Point(ug, ng);
+			cv::circle(frame, centroide, 3, (0, 0, 255), -1);
+			cv::circle(frame, p1, 3, cv::Scalar(0, 0, 255), -1);
+			cv::circle(frame, p2, 3, cv::Scalar(0, 255, 0), -1);
+			cv::circle(frame, p3, 3, cv::Scalar(255, 0, 255), -1);
+			cv::circle(frame, p4, 3, cv::Scalar(255, 255, 0), -1);
+
+			*/
+			//std::cout << "p1 " << point1 << std::endl;
+			//std::cout << "p2 " << point2 << std::endl;
+			//std::cout << "p3 " << point3 << std::endl;
+			//std::cout << "p4 " << point4 << std::endl;
+
+			
+
+				if (markerIds.size() <= 3 && markerIds[0] == 6)
+				{
+					vs = false;
+					vk = true;
+				}
+
+				else if (markerIds.size() == 4)
+				{
+					vs = true;
+					vk = false;
+				}
+
+				else 
+				{
+					vk = 0;
+					vs = 0;
+				}
+
+
+				if (vk == false && vs == true)
+				{
+					//Extracción de esquinas
+					cv::Point p11 = markerCorners[0].at(0);
+					cv::Point p21 = markerCorners[0].at(1);
+					cv::Point p31 = markerCorners[0].at(2);
+					cv::Point p41 = markerCorners[0].at(3);
+
+					//Extracción de esquinas
+					cv::Point p12 = markerCorners[1].at(0);
+					cv::Point p22 = markerCorners[1].at(1);
+					cv::Point p32 = markerCorners[1].at(2);
+					cv::Point p42 = markerCorners[1].at(3);
+
+					//Extracción de esquinas
+					cv::Point p13 = markerCorners[2].at(0);
+					cv::Point p23 = markerCorners[2].at(1);
+					cv::Point p33 = markerCorners[2].at(2);
+					cv::Point p43 = markerCorners[2].at(3);
+
+					//Extracción de esquinas
+					cv::Point p14 = markerCorners[3].at(0);
+					cv::Point p24 = markerCorners[3].at(1);
+					cv::Point p34 = markerCorners[3].at(2);
+					cv::Point p44 = markerCorners[3].at(3);
+
+					//Centroide para 4 puntos
+					ug1 = (p11.x + p21.x + p31.x + p41.x) / 4;
+					ng1 = (p11.y + p21.y + p31.y + p41.y) / 4;
+
+					ug2 = (p12.x + p22.x + p32.x + p42.x) / 4;
+					ng2 = (p12.y + p22.y + p32.y + p42.y) / 4;
+
+					ug3 = (p13.x + p23.x + p33.x + p43.x) / 4;
+					ng3 = (p13.y + p23.y + p33.y + p43.y) / 4;
+
+					ug4 = (p14.x + p24.x + p34.x + p44.x) / 4;
+					ng4 = (p14.y + p24.y + p34.y + p44.y) / 4;
+
+					ug = (ug1 + ug2 + ug3 + ug4) / 4;
+					ng = (ng1 + ng2 + ng3 + ng4) / 4;
+
+					cv::circle(frame, cv::Point(ug, ng), 3, (0, 0, 255), -1);
+					cv::circle(frame, cv::Point(ug1, ng1), 3, cv::Scalar(0, 0, 255), -1);
+					cv::circle(frame, cv::Point(ug2, ng2), 3, cv::Scalar(0, 255, 0), -1);
+					cv::circle(frame, cv::Point(ug3, ng3), 3, cv::Scalar(255, 0, 255), -1);
+					cv::circle(frame, cv::Point(ug4, ng4), 3, cv::Scalar(255, 255, 0), -1);
+
+				}
+
+
+
+
+				if (vk == true && vs == false)
+				{
+					//Extracción de esquinas
+					cv::Point p1 = markerCorners[0].at(0);
+					cv::Point p2 = markerCorners[0].at(1);
+					cv::Point p3 = markerCorners[0].at(2);
+					cv::Point p4 = markerCorners[0].at(3);
+
+					//Conversión de std::vector a Eigen para hacer cálculos
+					Eigen::RowVector2d point1;
+					Eigen::RowVector2d point2;
+					Eigen::RowVector2d point3;
+					Eigen::RowVector2d point4;
+
+					point1 << p1.x, p1.y;
+					point2 << p2.x, p2.y;
+					point3 << p3.x, p3.y;
+					point4 << p4.x, p4.y;
+
+					//Centroide para 4 puntos
+					ug = (p1.x + p2.x + p3.x + p4.x) / 4;
+					ng = (p1.y + p2.y + p3.y + p4.y) / 4;
+					
+					cv::Point centroide = cv::Point(ug, ng);
+					cv::circle(frame, centroide, 3, (0, 0, 255), -1);
+					cv::circle(frame, p1, 3, cv::Scalar(0, 0, 255), -1);
+					cv::circle(frame, p2, 3, cv::Scalar(0, 255, 0), -1);
+					cv::circle(frame, p3, 3, cv::Scalar(255, 0, 255), -1);
+					cv::circle(frame, p4, 3, cv::Scalar(255, 255, 0), -1);
+
+					
+
+
+				}
+
+				std::cout << "Vs: " << vs << std:: endl;
+				std::cout << "Vk: " << vk << std::endl;
+				std::cout << markerIds[0] << std::endl;
+						
+				/*
+				if (markerIds.size() == 5)
+				{
+					std::cout << "---------------------------" << std::endl;
+					std::cout << markerIds[0] << std::endl;
+					std::cout << markerIds[1] << std::endl;
+					std::cout << markerIds[2] << std::endl;
+					std::cout << markerIds[3] << std::endl;
+					std::cout << markerIds[4] << std::endl;
+
+				}
+
+				
+				if (markerIds.size() == 4)
+				{
+					std::cout << markerIds[0] << std::endl;
+					std::cout << markerIds[1] << std::endl;
+					std::cout << markerIds[2] << std::endl;
+					std::cout << markerIds[3] << std::endl;
+					
+				}
+
+				if (markerIds.size() == 3)
+				{
+					std::cout << markerIds[0] << std::endl;
+					std::cout << markerIds[1] << std::endl;
+					std::cout << markerIds[2] << std::endl;
+					
+				}
+
+				if (markerIds.size() == 2)
+				{
+					std::cout << markerIds[0] << std::endl;
+					std::cout << markerIds[1] << std::endl;
+				}
+
+
+
+				*/
+				
+				
+				
+					
+								
+					
+			
+
+
+		}
+
+
+			cv::imshow("Frame", frame);
+
+
+			
+
+			if (keypress == 27)
+			{
+				break;
+			}
+		
+		
+
+
+
+
+	}
+	cap.release();
+	cv::destroyAllWindows();
+	return 0;
+}
+
+
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
