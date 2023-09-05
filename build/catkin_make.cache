@@ -1,0 +1,2 @@
+fa_hex_ibvs:fxteso_aibvs:ibvs_nftasmc:td_ibvs_nsftasmc:test_gazebo:vision_algorithm
+-DCATKIN_DEVEL_PREFIX=/home/armando/Documents/visual_servoing_ws/devel -DCMAKE_INSTALL_PREFIX=/home/armando/Documents/visual_servoing_ws/install -G Unix Makefiles

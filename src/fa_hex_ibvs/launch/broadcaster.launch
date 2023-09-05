@@ -1,0 +1,8 @@
+<launch>
+
+	
+	<node pkg="fa_hex_ibvs" type="fahex_quad_broadcaster_node" name="fahex_quad_broadcaster_node"  />
+	<node pkg="fa_hex_ibvs" type="fahex_target_broadcaster_node" name="fahex_target_broadcaster_node" />
+	
+
+</launch>

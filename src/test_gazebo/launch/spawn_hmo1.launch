@@ -1,0 +1,12 @@
+<launch>
+    <include file="$(find test_gazebo)/launch/spawn_sdf.launch">
+        <arg name="robot_name" value="hmo1" />
+        <arg name="x" value="0.0" />
+        <arg name="y" value="0.0" />
+        <arg name="z" value="0.0" />
+        <arg name="roll" value="0.0" />
+        <arg name="pitch" value="0.0" />
+        <arg name="yaw" value="0.0" />
+        <arg name="sdf_robot_file" value="$(find test_gazebo)/models/city/model.sdf" />
+    </include>
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+	
+		
+	
+	<node pkg="fa_hex_ibvs" type="fahex_dynamics_node" name="fahex_dynamics_node"  />
+	<node pkg="fa_hex_ibvs" type="fahex_imfeat_node" name="fahex_imfeat_node" output="screen"   />
+	<node pkg="fa_hex_ibvs" type="fahex_TD_node" name="fahex_TD_node"  />
+	<node pkg="fa_hex_ibvs" type="fahex_ibvs_node" name="fahex_ibvs_node"   />
+	<node pkg="fa_hex_ibvs" type="fahex_nftasmc_att_node" name="fahex_nftasmc_att_node"  />
+	<node pkg="fa_hex_ibvs" type="fahex_tgt_pos_node" name="fahex_tgt_pos_node"  />
+	<node pkg="fa_hex_ibvs" type="fahex_dist_node" name="fahex_dist_node"  />
+		
+
+</launch>

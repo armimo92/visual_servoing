@@ -1,0 +1,8 @@
+prefix=/home/armando/Documents/visual_servoing_ws/install
+
+Name: td_ibvs_nsftasmc
+Description: Description of td_ibvs_nsftasmc
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: cv_bridge gazebo_msgs geometry_msgs image_transport nav_msgs roscpp sensor_msgs std_msgs tf2
