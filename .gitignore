@@ -2,4 +2,7 @@
 *.bag
 *.bag.active
 
-*.mp4
+*.mp4   
+
+# Directorios de rosbags en cualquier nivel
+**/rosbag/
