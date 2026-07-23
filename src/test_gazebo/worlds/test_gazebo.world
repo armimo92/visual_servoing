@@ -1,9 +1,15 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <world name="default">
-     <include>
+  
+  	<physics name="default_physics" type="none">
+        <!-- No physics engine will be used -->
+    </physics>
+  
+    <include>
       <uri>model://sun</uri>
     </include>
+    
     <scene>
     	<grid>false</grid>
     	<ambient>0.8 0.8 0.8 1.0</ambient>
@@ -13,5 +19,149 @@
        	</clouds>
     	</sky>
    </scene>
+   
+   <light name="point_light_0" type="point">
+  		<pose>22 20 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_1" type="point">
+  		<pose>20 0 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_2" type="point">
+  		<pose>20 -20 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_3" type="point">
+  		<pose>0 20 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+	</light>
+
+   <light name="point_light_4" type="point">
+  		<pose>0 0 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+	</light>
+
+   <light name="point_light_5" type="point">
+  		<pose>0 -20 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_6" type="point">
+  		<pose> -20 20 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_7" type="point">
+  		<pose> -20 0 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_8" type="point">
+  		<pose> -20 -20 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_9" type="point">
+  		<pose> 10 10 12 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+	</light>
+
+   <light name="point_light_10" type="point">
+  		<pose> 10 -10 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
+   <light name="point_light_11" type="point">
+  		<pose> -10 10 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse>> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation> 
+	</light>
+    
+    <light name="point_light_12" type="point">
+  		<pose> -10 -10 12 0 0 0</pose> <!-- Position and orientation of the light -->
+	  	<diffuse>0.5 0.5 0.5 1</diffuse> <!-- RGB color and intensity of the diffuse component -->
+	  	<attenuation>
+	    		<range>20</range> <!-- Range of the light -->
+	    		<constant>0.2</constant> <!-- Constant attenuation factor -->
+				<linear>0</linear> <!-- Linear attenuation factor -->
+	    		<quadratic>0.0</quadratic> <!-- Quadratic attenuation factor -->
+	  	</attenuation>
+    </light>
+
   </world>
 </sdf>

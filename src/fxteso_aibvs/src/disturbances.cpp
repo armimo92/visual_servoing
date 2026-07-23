@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
     ifstream myFile;
     string line;
-    myFile.open("/home/armando/Documents/visual_servoing_ws/src/fxteso_aibvs/src/csv_files/dist1.csv");
+    myFile.open("/home/armando/Documents/visual_servoing_ws/src/fxteso_aibvs/src/csv_files/dist_light.csv");
     getline(myFile, line);
     	
     disturbances_var.x = 0;
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     disturbances_pub.publish(disturbances_var);
     ros::Duration(3).sleep();
 
-    while (getline(myFile, line) && ros::ok())
+    /*while (getline(myFile, line) && ros::ok())
     {       
         stringstream stream(line); // Convertir la cadena a un stream
         string x, y, z;
@@ -69,24 +69,26 @@ int main(int argc, char *argv[])
 		loop_rate.sleep();        
     }
 
-    myFile.close();
+    myFile.close();*/
    
     while (ros::ok())
     {
-        //t = i*step;
+        t = i*step;
 
-        // if (t >= 22 && t <= 25)
-        // {
-        //     disturbances_var.x = 0.5;
-        //     disturbances_var.y = 0.5;
-        //     disturbances_var.z = 0.5;
-        // }
-        // else
-        // {
-        //     disturbances_var.x = 0;
-        //     disturbances_var.y = 0;
-        //     disturbances_var.z = 0;
-        // }
+        /*if (t >= 12 && t <= 15)
+        {
+             disturbances_var.x = 0.5;
+             disturbances_var.y = 0.5;
+             disturbances_var.z = 0.5;
+        }
+        else
+        {
+             disturbances_var.x = 0;
+             disturbances_var.y = 0;
+             disturbances_var.z = 0;
+        }
+        */
+        i++;
 
         disturbances_var.x = 0;
         disturbances_var.y = 0;

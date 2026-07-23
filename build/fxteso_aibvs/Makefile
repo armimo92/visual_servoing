@@ -80,17 +80,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -124,6 +113,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -168,34 +168,214 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule
-.PHONY : fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule
+fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-img_feat_node: fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule
+geographic_msgs_generate_messages_nodejs: fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : img_feat_node
+.PHONY : geographic_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-img_feat_node/fast:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/img_feat_node.dir/build.make fxteso_aibvs/CMakeFiles/img_feat_node.dir/build
-.PHONY : img_feat_node/fast
+geographic_msgs_generate_messages_nodejs/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/build.make fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/build
+.PHONY : geographic_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule
-.PHONY : fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule
+fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-external_disturbances_node: fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule
+geographic_msgs_generate_messages_eus: fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule
 
-.PHONY : external_disturbances_node
+.PHONY : geographic_msgs_generate_messages_eus
 
 # fast build rule for target.
-external_disturbances_node/fast:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/build.make fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/build
-.PHONY : external_disturbances_node/fast
+geographic_msgs_generate_messages_eus/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/build.make fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/build
+.PHONY : geographic_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/td_attitude_node.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/td_attitude_node.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/td_attitude_node.dir/rule
+
+# Convenience name for target.
+td_attitude_node: fxteso_aibvs/CMakeFiles/td_attitude_node.dir/rule
+
+.PHONY : td_attitude_node
+
+# fast build rule for target.
+td_attitude_node/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_node.dir/build
+.PHONY : td_attitude_node/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_py: fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_py
+
+# fast build rule for target.
+geographic_msgs_generate_messages_py/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_py.dir/build.make fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_py.dir/build
+.PHONY : geographic_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_cpp: fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geographic_msgs_generate_messages_cpp/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/build.make fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/build
+.PHONY : geographic_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_nodejs: fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+mavros_msgs_generate_messages_nodejs/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/build.make fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/build
+.PHONY : mavros_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_nodejs: fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+uuid_msgs_generate_messages_nodejs/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/build.make fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/build
+.PHONY : uuid_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_lisp: fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_lisp
+
+# fast build rule for target.
+mavros_msgs_generate_messages_lisp/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/build.make fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/build
+.PHONY : mavros_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_eus: fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_eus
+
+# fast build rule for target.
+mavros_msgs_generate_messages_eus/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/build.make fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/build
+.PHONY : mavros_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule
+
+# Convenience name for target.
+attitude_controller_node: fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule
+
+.PHONY : attitude_controller_node
+
+# fast build rule for target.
+attitude_controller_node/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/build.make fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/build
+.PHONY : attitude_controller_node/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_cpp: fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_cpp
+
+# fast build rule for target.
+uuid_msgs_generate_messages_cpp/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/build.make fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/build
+.PHONY : uuid_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_cpp: fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_cpp
+
+# fast build rule for target.
+mavros_msgs_generate_messages_cpp/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/build.make fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/build
+.PHONY : mavros_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_py: fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_py
+
+# fast build rule for target.
+uuid_msgs_generate_messages_py/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_py.dir/build.make fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_py.dir/build
+.PHONY : uuid_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_lisp: fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_lisp
+
+# fast build rule for target.
+uuid_msgs_generate_messages_lisp/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/build.make fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/build
+.PHONY : uuid_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 fxteso_aibvs/CMakeFiles/video_publication_node.dir/rule:
@@ -228,6 +408,21 @@ fixed_eso_node/fast:
 .PHONY : fixed_eso_node/fast
 
 # Convenience name for target.
+fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule
+
+# Convenience name for target.
+img_feat_node: fxteso_aibvs/CMakeFiles/img_feat_node.dir/rule
+
+.PHONY : img_feat_node
+
+# fast build rule for target.
+img_feat_node/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/img_feat_node.dir/build.make fxteso_aibvs/CMakeFiles/img_feat_node.dir/build
+.PHONY : img_feat_node/fast
+
+# Convenience name for target.
 fxteso_aibvs/CMakeFiles/ibvs_controller_node.dir/rule:
 	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/ibvs_controller_node.dir/rule
 .PHONY : fxteso_aibvs/CMakeFiles/ibvs_controller_node.dir/rule
@@ -241,21 +436,6 @@ ibvs_controller_node: fxteso_aibvs/CMakeFiles/ibvs_controller_node.dir/rule
 ibvs_controller_node/fast:
 	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/ibvs_controller_node.dir/build.make fxteso_aibvs/CMakeFiles/ibvs_controller_node.dir/build
 .PHONY : ibvs_controller_node/fast
-
-# Convenience name for target.
-fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule
-.PHONY : fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule
-
-# Convenience name for target.
-attitude_controller_node: fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/rule
-
-.PHONY : attitude_controller_node
-
-# fast build rule for target.
-attitude_controller_node/fast:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/build.make fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/build
-.PHONY : attitude_controller_node/fast
 
 # Convenience name for target.
 fxteso_aibvs/CMakeFiles/quadrotor_dynamics_node.dir/rule:
@@ -273,6 +453,21 @@ quadrotor_dynamics_node/fast:
 .PHONY : quadrotor_dynamics_node/fast
 
 # Convenience name for target.
+fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_lisp: fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_lisp
+
+# fast build rule for target.
+geographic_msgs_generate_messages_lisp/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/build.make fxteso_aibvs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/build
+.PHONY : geographic_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
 fxteso_aibvs/CMakeFiles/target_position_node.dir/rule:
 	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/target_position_node.dir/rule
 .PHONY : fxteso_aibvs/CMakeFiles/target_position_node.dir/rule
@@ -288,19 +483,64 @@ target_position_node/fast:
 .PHONY : target_position_node/fast
 
 # Convenience name for target.
-fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/rule:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/rule
-.PHONY : fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/rule
+fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-fixed_eso_att_node: fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/rule
+mavros_msgs_generate_messages_py: fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule
 
-.PHONY : fixed_eso_att_node
+.PHONY : mavros_msgs_generate_messages_py
 
 # fast build rule for target.
-fixed_eso_att_node/fast:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/build.make fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/build
-.PHONY : fixed_eso_att_node/fast
+mavros_msgs_generate_messages_py/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_py.dir/build.make fxteso_aibvs/CMakeFiles/mavros_msgs_generate_messages_py.dir/build
+.PHONY : mavros_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_eus: fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_eus
+
+# fast build rule for target.
+uuid_msgs_generate_messages_eus/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/build.make fxteso_aibvs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/build
+.PHONY : uuid_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule
+
+# Convenience name for target.
+external_disturbances_node: fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/rule
+
+.PHONY : external_disturbances_node
+
+# fast build rule for target.
+external_disturbances_node/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/build.make fxteso_aibvs/CMakeFiles/external_disturbances_node.dir/build
+.PHONY : external_disturbances_node/fast
+
+# Convenience name for target.
+fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/rule:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/rule
+.PHONY : fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/rule
+
+# Convenience name for target.
+td_attitude_desired_node: fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/rule
+
+.PHONY : td_attitude_desired_node
+
+# fast build rule for target.
+td_attitude_desired_node/fast:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/build
+.PHONY : td_attitude_desired_node/fast
 
 src/attitude_nftasmc.o: src/attitude_nftasmc.cpp.o
 
@@ -382,33 +622,6 @@ src/fixed_eso.s: src/fixed_eso.cpp.s
 src/fixed_eso.cpp.s:
 	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/fixed_eso_node.dir/build.make fxteso_aibvs/CMakeFiles/fixed_eso_node.dir/src/fixed_eso.cpp.s
 .PHONY : src/fixed_eso.cpp.s
-
-src/fixed_eso_att.o: src/fixed_eso_att.cpp.o
-
-.PHONY : src/fixed_eso_att.o
-
-# target to build an object file
-src/fixed_eso_att.cpp.o:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/build.make fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/src/fixed_eso_att.cpp.o
-.PHONY : src/fixed_eso_att.cpp.o
-
-src/fixed_eso_att.i: src/fixed_eso_att.cpp.i
-
-.PHONY : src/fixed_eso_att.i
-
-# target to preprocess a source file
-src/fixed_eso_att.cpp.i:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/build.make fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/src/fixed_eso_att.cpp.i
-.PHONY : src/fixed_eso_att.cpp.i
-
-src/fixed_eso_att.s: src/fixed_eso_att.cpp.s
-
-.PHONY : src/fixed_eso_att.s
-
-# target to generate assembly for a file
-src/fixed_eso_att.cpp.s:
-	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/build.make fxteso_aibvs/CMakeFiles/fixed_eso_att_node.dir/src/fixed_eso_att.cpp.s
-.PHONY : src/fixed_eso_att.cpp.s
 
 src/ibvs_pos_ctrl.o: src/ibvs_pos_ctrl.cpp.o
 
@@ -518,6 +731,60 @@ src/target_position.cpp.s:
 	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/target_position_node.dir/build.make fxteso_aibvs/CMakeFiles/target_position_node.dir/src/target_position.cpp.s
 .PHONY : src/target_position.cpp.s
 
+src/td_attitude.o: src/td_attitude.cpp.o
+
+.PHONY : src/td_attitude.o
+
+# target to build an object file
+src/td_attitude.cpp.o:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_node.dir/src/td_attitude.cpp.o
+.PHONY : src/td_attitude.cpp.o
+
+src/td_attitude.i: src/td_attitude.cpp.i
+
+.PHONY : src/td_attitude.i
+
+# target to preprocess a source file
+src/td_attitude.cpp.i:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_node.dir/src/td_attitude.cpp.i
+.PHONY : src/td_attitude.cpp.i
+
+src/td_attitude.s: src/td_attitude.cpp.s
+
+.PHONY : src/td_attitude.s
+
+# target to generate assembly for a file
+src/td_attitude.cpp.s:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_node.dir/src/td_attitude.cpp.s
+.PHONY : src/td_attitude.cpp.s
+
+src/td_attitude_desired.o: src/td_attitude_desired.cpp.o
+
+.PHONY : src/td_attitude_desired.o
+
+# target to build an object file
+src/td_attitude_desired.cpp.o:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/src/td_attitude_desired.cpp.o
+.PHONY : src/td_attitude_desired.cpp.o
+
+src/td_attitude_desired.i: src/td_attitude_desired.cpp.i
+
+.PHONY : src/td_attitude_desired.i
+
+# target to preprocess a source file
+src/td_attitude_desired.cpp.i:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/src/td_attitude_desired.cpp.i
+.PHONY : src/td_attitude_desired.cpp.i
+
+src/td_attitude_desired.s: src/td_attitude_desired.cpp.s
+
+.PHONY : src/td_attitude_desired.s
+
+# target to generate assembly for a file
+src/td_attitude_desired.cpp.s:
+	cd /home/armando/Documents/visual_servoing_ws/build && $(MAKE) -f fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/build.make fxteso_aibvs/CMakeFiles/td_attitude_desired_node.dir/src/td_attitude_desired.cpp.s
+.PHONY : src/td_attitude_desired.cpp.s
+
 src/uav_dynamics.o: src/uav_dynamics.cpp.o
 
 .PHONY : src/uav_dynamics.o
@@ -553,19 +820,35 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... img_feat_node"
-	@echo "... external_disturbances_node"
-	@echo "... video_publication_node"
-	@echo "... fixed_eso_node"
-	@echo "... ibvs_controller_node"
-	@echo "... test"
-	@echo "... attitude_controller_node"
-	@echo "... quadrotor_dynamics_node"
-	@echo "... target_position_node"
+	@echo "... geographic_msgs_generate_messages_nodejs"
+	@echo "... geographic_msgs_generate_messages_eus"
+	@echo "... td_attitude_node"
+	@echo "... geographic_msgs_generate_messages_py"
 	@echo "... install/strip"
-	@echo "... fixed_eso_att_node"
+	@echo "... geographic_msgs_generate_messages_cpp"
+	@echo "... mavros_msgs_generate_messages_nodejs"
+	@echo "... uuid_msgs_generate_messages_nodejs"
+	@echo "... mavros_msgs_generate_messages_lisp"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... mavros_msgs_generate_messages_eus"
+	@echo "... attitude_controller_node"
+	@echo "... uuid_msgs_generate_messages_cpp"
+	@echo "... mavros_msgs_generate_messages_cpp"
+	@echo "... uuid_msgs_generate_messages_py"
+	@echo "... uuid_msgs_generate_messages_lisp"
+	@echo "... test"
+	@echo "... video_publication_node"
+	@echo "... fixed_eso_node"
+	@echo "... img_feat_node"
+	@echo "... ibvs_controller_node"
+	@echo "... quadrotor_dynamics_node"
+	@echo "... geographic_msgs_generate_messages_lisp"
+	@echo "... target_position_node"
+	@echo "... mavros_msgs_generate_messages_py"
+	@echo "... uuid_msgs_generate_messages_eus"
+	@echo "... external_disturbances_node"
+	@echo "... td_attitude_desired_node"
 	@echo "... list_install_components"
 	@echo "... src/attitude_nftasmc.o"
 	@echo "... src/attitude_nftasmc.i"
@@ -576,9 +859,6 @@ help:
 	@echo "... src/fixed_eso.o"
 	@echo "... src/fixed_eso.i"
 	@echo "... src/fixed_eso.s"
-	@echo "... src/fixed_eso_att.o"
-	@echo "... src/fixed_eso_att.i"
-	@echo "... src/fixed_eso_att.s"
 	@echo "... src/ibvs_pos_ctrl.o"
 	@echo "... src/ibvs_pos_ctrl.i"
 	@echo "... src/ibvs_pos_ctrl.s"
@@ -591,6 +871,12 @@ help:
 	@echo "... src/target_position.o"
 	@echo "... src/target_position.i"
 	@echo "... src/target_position.s"
+	@echo "... src/td_attitude.o"
+	@echo "... src/td_attitude.i"
+	@echo "... src/td_attitude.s"
+	@echo "... src/td_attitude_desired.o"
+	@echo "... src/td_attitude_desired.i"
+	@echo "... src/td_attitude_desired.s"
 	@echo "... src/uav_dynamics.o"
 	@echo "... src/uav_dynamics.i"
 	@echo "... src/uav_dynamics.s"

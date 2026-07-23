@@ -104,24 +104,26 @@ int main(int argc, char** argv)
 	tgt_vel_pub.publish(tgt_vel);
 	tgt_yaw_rate_pub.publish(tgt_psi_rate);
 
-	ros::Duration(1).sleep();
+	ros::Duration(3).sleep();
 	while(ros::ok())
 	{
 		t = i*step;
 		
-		
-		// pos_x = -15;
-		// pos_y = 0;
-		// pos_z = 0;
-		// yaw = 0;
+		/*pos_x = 0;
+		pos_y = 0;
+		pos_z = 0;
+		yaw = 0;
 
-		// xp = 0;
-		// yp = 0;
-		// yawRate = 0;
-		
+		xp = 0;
+		yp = 0;
+		zp = 0;
+		yawRate = 0;
+		*/		
+		/*
 		xp = 0;
 		yp = 0;
 		yawRate = 0;
+		*/
 			
 		if(t>=0 && t<2)
 		{
@@ -156,13 +158,13 @@ int main(int argc, char** argv)
 		}	
 		else if (t >= 24 && t < 26)
 		{
-			xp = 1;
-			yp = -1;
+			xp = 0.7;
+			yp = -0.7;
 			yawRate = 0.2;
 			}	
 		else if (t >= 26 && t < 30)
 		{
-			xp = 1;
+			xp = 0.8;
 			yp = 0;
 			yawRate = 0;
 		}
@@ -238,7 +240,7 @@ int main(int argc, char** argv)
 		pos_x = pos_x + xp * step;
 		pos_y = pos_y + yp * step;
 		yaw = yaw + yawRate * step;	
-
+		
 
 		error(0) = quad_pos(0) - pos_x;
 		error(1) = quad_pos(1) - pos_y;

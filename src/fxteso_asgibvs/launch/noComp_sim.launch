@@ -1,0 +1,28 @@
+<launch>
+	
+	<node pkg="fxteso_asgibvs" type="aibvs_uav_node" name="aibvs_uav_node" />		
+	
+	<node pkg="fxteso_asgibvs" type="aibvs_dist_node" name="aibvs_dist_node"  />	
+	
+	<node pkg="td_ibvs_nsftasmc" type="imfeat_node" name="imfeat_node" output="screen"   />
+	
+	<node pkg="td_ibvs_nsftasmc" type="ibvs_node" name="ibvs_node"   />
+	
+	<node pkg="td_ibvs_nsftasmc" type="nftasmc_att_node" name="nftasmc_att_node"  />
+
+	<node pkg="td_ibvs_nsftasmc" type="fixed_td_node" name="fixed_td_node"  />
+	
+	<node pkg="fxteso_asgibvs" type="aibvs_tgtPos_node" name="aibvs_tgtPos_node"  />
+	
+	
+
+</launch>
+
+
+
+
+
+	
+	
+
+

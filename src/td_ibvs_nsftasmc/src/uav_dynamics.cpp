@@ -121,7 +121,7 @@ int main(int argc, char **argv)
 	//linear_position << -24.1,-3.2,-4; //Recta
 	//linear_position << -0.1,-2.8,-4; //Circulo
 	//linear_position << -4.7,-0.2,-4; //Lemniscata
-	linear_position << 0,0,-4; // Target perturbado
+	linear_position << 0.2,0.3,-4; // Target perturbado
 	
 	attitude_position << 0,0,0;
 

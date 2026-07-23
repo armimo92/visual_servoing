@@ -7,6 +7,6 @@
 	<node pkg="td_ibvs_nsftasmc" type="dist_node" name="dist_node"  />
 	<node pkg="td_ibvs_nsftasmc" type="tgt_pos_node" name="tgt_pos_node"  />
 	<node pkg="td_ibvs_nsftasmc" type="fixed_td_node" name="fixed_td_node"  />
-	<!--node pkg="td_ibvs_nsftasmc" type="han_node" name="han_node"  -->
+	
 </launch>
 

@@ -1,0 +1,8 @@
+prefix=/home/armando/Documents/visual_servoing_ws/devel
+
+Name: fxteso_asgibvs
+Description: Description of fxteso_asgibvs
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: cv_bridge gazebo_msgs geometry_msgs image_transport nav_msgs roscpp sensor_msgs std_msgs tf2 mavros_msgs

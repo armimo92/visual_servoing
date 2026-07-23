@@ -424,6 +424,12 @@ fxteso_aibvs_BINARY_DIR:STATIC=/home/armando/Documents/visual_servoing_ws/build/
 //Value Computed by CMake
 fxteso_aibvs_SOURCE_DIR:STATIC=/home/armando/Documents/visual_servoing_ws/src/fxteso_aibvs
 
+//Value Computed by CMake
+fxteso_asgibvs_BINARY_DIR:STATIC=/home/armando/Documents/visual_servoing_ws/build/fxteso_asgibvs
+
+//Value Computed by CMake
+fxteso_asgibvs_SOURCE_DIR:STATIC=/home/armando/Documents/visual_servoing_ws/src/fxteso_asgibvs
+
 //The directory containing a CMake configuration file for gazebo_msgs.
 gazebo_msgs_DIR:PATH=/opt/ros/noetic/share/gazebo_msgs/cmake
 
@@ -444,6 +450,9 @@ gennodejs_DIR:PATH=/opt/ros/noetic/share/gennodejs/cmake
 
 //The directory containing a CMake configuration file for genpy.
 genpy_DIR:PATH=/opt/ros/noetic/share/genpy/cmake
+
+//The directory containing a CMake configuration file for geographic_msgs.
+geographic_msgs_DIR:PATH=/opt/ros/noetic/share/geographic_msgs/cmake
 
 //The directory containing a CMake configuration file for geometry_msgs.
 geometry_msgs_DIR:PATH=/opt/ros/noetic/share/geometry_msgs/cmake
@@ -505,6 +514,9 @@ image_transport_DIR:PATH=/opt/ros/noetic/share/image_transport/cmake
 
 //Path to a library.
 lib:FILEPATH=/opt/ros/noetic/lib/libtf2.so
+
+//The directory containing a CMake configuration file for mavros_msgs.
+mavros_msgs_DIR:PATH=/opt/ros/noetic/share/mavros_msgs/cmake
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/noetic/share/message_filters/cmake
@@ -574,6 +586,9 @@ tf2_msgs_DIR:PATH=/opt/ros/noetic/share/tf2_msgs/cmake
 
 //The directory containing a CMake configuration file for trajectory_msgs.
 trajectory_msgs_DIR:PATH=/opt/ros/noetic/share/trajectory_msgs/cmake
+
+//The directory containing a CMake configuration file for uuid_msgs.
+uuid_msgs_DIR:PATH=/opt/ros/noetic/share/uuid_msgs/cmake
 
 //Value Computed by CMake
 vision_algorithm_BINARY_DIR:STATIC=/home/armando/Documents/visual_servoing_ws/build/vision_algorithm
@@ -732,7 +747,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

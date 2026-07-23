@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget parent="main_window" name="Main Window">
+  <Tab tab_name="XY position" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="XYPlot" flip_y="false">
+       <range top="11.293540" right="15.749775" bottom="-11.225461" left="-23.578109"/>
+       <limitY/>
+       <curve curve_x="/tgt_position/x" curve_y="/tgt_position/y" color="#1f77b4" name="/tgt_position/[x;y]"/>
+       <curve curve_x="/quad_position/x" curve_y="/quad_position/y" color="#d62728" name="/quad_position/[x;y]"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Z position" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="-1.938008" right="266.267000" bottom="-4.151279" left="1.001000"/>
+       <limitY/>
+       <curve color="#1ac938" name="/z_des/data"/>
+       <curve color="#ff7f0e" name="/quad_position/z"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Attitude" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.098830" right="266.263000" bottom="-0.121296" left="4.385000"/>
+         <limitY/>
+         <curve color="#f14cc1" name="/attitude_estimates/angular/x"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="9.769636" right="266.263000" bottom="-0.271090" left="2.310000"/>
+         <limitY/>
+         <curve color="#17becf" name="/attitude_estimates/linear/z"/>
+         <curve color="#bcbd22" name="/tgt_yaw/data"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.083211" right="266.263000" bottom="-0.091269" left="4.385000"/>
+         <limitY/>
+         <curve color="#9467bd" name="/attitude_estimates/angular/y"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.257008" right="266.263000" bottom="-0.125154" left="4.385000"/>
+         <limitY/>
+         <curve color="#f14cc1" name="/attitude_estimates/angular/x"/>
+         <curve color="#9467bd" name="/attitude_estimates/angular/y"/>
+         <curve color="#1f77b4" name="/attitude_estimates/angular/z"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Estimations vs measured" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.236733" right="266.269000" bottom="-0.274240" left="1.718000"/>
+         <limitY/>
+         <curve color="#9467bd" name="/ImFeat_vector/x"/>
+         <curve color="#1ac938" name="/ImFeat_estimates_fxt/x"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="1.673520" right="266.269000" bottom="0.570156" left="1.718000"/>
+         <limitY/>
+         <curve color="#bcbd22" name="/ImFeat_vector/z"/>
+         <curve color="#f14cc1" name="/ImFeat_estimates_fxt/z"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.448361" right="266.269000" bottom="-0.312759" left="1.718000"/>
+         <limitY/>
+         <curve color="#17becf" name="/ImFeat_vector/y"/>
+         <curve color="#ff7f0e" name="/ImFeat_estimates_fxt/y"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.140408" right="266.269000" bottom="-0.119712" left="1.718000"/>
+         <limitY/>
+         <curve color="#1f77b4" name="/ImFeat_vector/w"/>
+         <curve color="#d62728" name="/ImFeat_estimates_fxt/w"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="IBVS adaptive gains" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="0.126542" right="266.261000" bottom="-0.003086" left="0.000000"/>
+       <limitY/>
+       <curve color="#d62728" name="/adaptive_gain/w"/>
+       <curve color="#1ac938" name="/adaptive_gain/x"/>
+       <curve color="#ff7f0e" name="/adaptive_gain/y"/>
+       <curve color="#f14cc1" name="/adaptive_gain/z"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Disturbances" containers="1">
+   <Container>
+    <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="1.246800" right="266.267000" bottom="-0.907787" left="4.609000"/>
+        <limitY/>
+        <curve color="#9467bd" name="/disturbances/x"/>
+        <curve color="#1f77b4" name="/scaled_ibvs_dist/x"/>
+       </plot>
+      </DockArea>
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="1.377957" right="266.267000" bottom="-1.140257" left="4.609000"/>
+        <limitY/>
+        <curve color="#17becf" name="/disturbances/y"/>
+        <curve color="#d62728" name="/scaled_ibvs_dist/y"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="1.764927" right="266.267000" bottom="-7.312412" left="4.609000"/>
+       <limitY/>
+       <curve color="#bcbd22" name="/disturbances/z"/>
+       <curve color="#1ac938" name="/scaled_ibvs_dist/z"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Estimation error" containers="1">
+   <Container>
+    <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="0.002636" right="266.263000" bottom="-0.002452" left="4.385000"/>
+        <limitY/>
+        <curve color="#bcbd22" name="/attitude_td_error/x"/>
+        <curve color="#1f77b4" name="/attitude_td_error/y"/>
+        <curve color="#d62728" name="/attitude_td_error/z"/>
+       </plot>
+      </DockArea>
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="0.071186" right="266.269000" bottom="-0.049429" left="4.608000"/>
+        <limitY/>
+        <curve color="#17becf" name="/estimation_error_fxt/w"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="0.669347" right="266.269000" bottom="-1.757789" left="4.608000"/>
+       <limitY/>
+       <curve color="#ff7f0e" name="/estimation_error_fxt/x"/>
+       <curve color="#f14cc1" name="/estimation_error_fxt/y"/>
+       <curve color="#9467bd" name="/estimation_error_fxt/z"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Pixel evolution" containers="1">
+   <Container>
+    <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="192.037152" right="266.260000" bottom="-75.225644" left="4.888000"/>
+        <limitY/>
+        <curve color="#1ac938" name="/n_coordinates/x"/>
+        <curve color="#ff7f0e" name="/u_coordinates/x"/>
+       </plot>
+      </DockArea>
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="126.723952" right="266.260000" bottom="-136.165961" left="4.888000"/>
+        <limitY/>
+        <curve color="#f14cc1" name="/n_coordinates/y"/>
+        <curve color="#9467bd" name="/u_coordinates/y"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="124.464614" right="266.260000" bottom="-138.082450" left="4.888000"/>
+        <limitY/>
+        <curve color="#17becf" name="/n_coordinates/z"/>
+        <curve color="#bcbd22" name="/u_coordinates/z"/>
+       </plot>
+      </DockArea>
+      <DockArea name="...">
+       <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+        <range top="193.461376" right="266.260000" bottom="-142.869793" left="4.888000"/>
+        <limitY/>
+        <curve color="#1f77b4" name="/n_coordinates/w"/>
+        <curve color="#d62728" name="/u_coordinates/w"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Position and IBVS errors" containers="1">
+   <Container>
+    <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="10.289965" right="266.261000" bottom="-1.888547" left="4.313000"/>
+       <limitY/>
+       <curve color="#1ac938" name="/position_error/x"/>
+       <curve color="#ff7f0e" name="/position_error/y"/>
+       <curve color="#f14cc1" name="/position_error/z"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="0.688431" right="266.261000" bottom="-1.041181" left="0.000000"/>
+       <limitY/>
+       <curve color="#9467bd" name="/error_visual_servoing/x"/>
+       <curve color="#17becf" name="/error_visual_servoing/y"/>
+       <curve color="#bcbd22" name="/error_visual_servoing/z"/>
+       <curve color="#1f77b4" name="/error_visual_servoing/w"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Thrust and torques" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockSplitter count="2" orientation="|" sizes="0.5;0.5">
+      <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="30.000000" right="266.261000" bottom="0.000000" left="0.000000"/>
+         <limitY max="30" min="0"/>
+         <curve color="#d62728" name="/quad_thrust/data"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.100000" right="266.267000" bottom="-0.100000" left="1.897000"/>
+         <limitY max="0.1" min="-0.1"/>
+         <curve color="#ff7f0e" name="/quad_torques/y"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.100000" right="266.267000" bottom="-0.100000" left="1.897000"/>
+         <limitY max="0.1" min="-0.1"/>
+         <curve color="#1ac938" name="/quad_torques/x"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+         <range top="0.100000" right="266.267000" bottom="-0.100000" left="1.897000"/>
+         <limitY max="0.1" min="-0.1"/>
+         <curve color="#f14cc1" name="/quad_torques/z"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="IBVS Sliding surfaces" containers="1">
+   <Container>
+    <DockSplitter count="2" orientation="-" sizes="0.500605;0.499395">
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="4.456498" right="266.261000" bottom="-0.108695" left="0.000000"/>
+       <limitY/>
+       <curve color="#bcbd22" name="/ibvs_ss/x"/>
+       <curve color="#1f77b4" name="/ibvs_ss/y"/>
+       <curve color="#d62728" name="/ibvs_ss/z"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_x="false" style="Lines" mode="TimeSeries" flip_y="false">
+       <range top="1.190817" right="266.261000" bottom="-0.029044" left="0.000000"/>
+       <limitY/>
+       <curve color="#1ac938" name="/ibvs_ss/w"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="10"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <parameters time_axis="" delimiter="0"/>
+  </plugin>
+  <plugin ID="DataLoad MCAP"/>
+  <plugin ID="DataLoad ROS bags">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="true"/>
+   <remove_suffix_from_strings value="true"/>
+   <selected_topics value="/ImFeat_dot_estimates_fxt;/ImFeat_estimates_fxt;/ImFeat_vector;/adaptive_gain;/attitude_desired_estimates;/attitude_estimates;/attitude_td_error;/disturbances;/error_visual_servoing;/estimation_error_fxt;/ibvs_dist;/ibvs_ss;/n_coordinates;/position_error;/quad_attitude;/quad_position;/quad_thrust;/quad_torques;/quad_velocity;/scaled_ibvs_dist;/tgt_position;/tgt_yaw;/u_coordinates;/z_des;attitude_des_td_error"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="true"/>
+   <remove_suffix_from_strings value="true"/>
+   <selected_topics value="/quad_position"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin ID="ZMQ Subscriber"/>
+  <plugin ID="Fast Fourier Transform"/>
+  <plugin ID="Quaternion to RPY"/>
+  <plugin ID="Reactive Script Editor">
+   <library code="--[[ Helper function to create a series from arrays&#xa;&#xa; new_series: a series previously created with ScatterXY.new(name)&#xa; prefix:     prefix of the timeseries, before the index of the array&#xa; suffix_X:   suffix to complete the name of the series containing the X value. If [nil], use the index of the array.&#xa; suffix_Y:   suffix to complete the name of the series containing the Y value&#xa; timestamp:   usually the tracker_time variable&#xa;              &#xa; Example:&#xa; &#xa; Assuming we have multiple series in the form:&#xa; &#xa;   /trajectory/node.{X}/position/x&#xa;   /trajectory/node.{X}/position/y&#xa;   &#xa; where {N} is the index of the array (integer). We can create a reactive series from the array with:&#xa; &#xa;   new_series = ScatterXY.new(&quot;my_trajectory&quot;) &#xa;   CreateSeriesFromArray( new_series, &quot;/trajectory/node&quot;, &quot;position/x&quot;, &quot;position/y&quot;, tracker_time );&#xa;--]]&#xa;&#xa;function CreateSeriesFromArray( new_series, prefix, suffix_X, suffix_Y, timestamp )&#xa;  &#xa;  --- clear previous values&#xa;  new_series:clear()&#xa;  &#xa;  --- Append points to new_series&#xa;  index = 0&#xa;  while(true) do&#xa;&#xa;    x = index;&#xa;    -- if not nil, get the X coordinate from a series&#xa;    if suffix_X ~= nil then &#xa;      series_x = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_X) )&#xa;      if series_x == nil then break end&#xa;      x = series_x:atTime(timestamp)&#x9; &#xa;    end&#xa;    &#xa;    series_y = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_Y) )&#xa;    if series_y == nil then break end &#xa;    y = series_y:atTime(timestamp)&#xa;    &#xa;    new_series:push_back(x,y)&#xa;    index = index+1&#xa;  end&#xa;end&#xa;&#xa;--[[ Similar to the built-in function GetSeriesNames(), but select only the names with a give prefix. --]]&#xa;&#xa;function GetSeriesNamesByPrefix(prefix)&#xa;  -- GetSeriesNames(9 is a built-in function&#xa;  all_names = GetSeriesNames()&#xa;  filtered_names = {}&#xa;  for i, name in ipairs(all_names)  do&#xa;    -- check the prefix&#xa;    if name:find(prefix, 1, #prefix) then&#xa;      table.insert(filtered_names, name);&#xa;    end&#xa;  end&#xa;  return filtered_names&#xa;end&#xa;&#xa;--[[ Modify an existing series, applying offsets to all their X and Y values&#xa;&#xa; series: an existing timeseries, obtained with TimeseriesView.find(name)&#xa; delta_x: offset to apply to each x value&#xa; delta_y: offset to apply to each y value &#xa;  &#xa;--]]&#xa;&#xa;function ApplyOffsetInPlace(series, delta_x, delta_y)&#xa;  -- use C++ indeces, not Lua indeces&#xa;  for index=0, series:size()-1 do&#xa;    x,y = series:at(index)&#xa;    series:set(index, x + delta_x, y + delta_y)&#xa;  end&#xa;end&#xa;"/>
+   <scripts/>
+  </plugin>
+  <plugin ID="CSV Exporter"/>
+  <plugin ID="ROS /rosout Visualization"/>
+  <plugin ID="ROS Topic Re-Publisher"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <previouslyLoaded_Datafiles>
+  <fileInfo prefix="" filename="fxteso_anftibvs_6.bag">
+   <plugin ID="DataLoad ROS bags">
+    <use_header_stamp value="false"/>
+    <discard_large_arrays value="true"/>
+    <max_array_size value="100"/>
+    <boolean_strings_to_number value="true"/>
+    <remove_suffix_from_strings value="true"/>
+    <selected_topics value="/ImFeat_dot_estimates_fxt;/ImFeat_estimates_fxt;/ImFeat_vector;/adaptive_gain;/attitude_desired_estimates;/attitude_estimates;/attitude_td_error;/disturbances;/error_visual_servoing;/estimation_error_fxt;/ibvs_dist;/ibvs_ss;/n_coordinates;/position_error;/quad_attitude;/quad_position;/quad_thrust;/quad_torques;/quad_velocity;/scaled_ibvs_dist;/tgt_position;/tgt_yaw;/u_coordinates;/z_des;attitude_des_td_error"/>
+   </plugin>
+  </fileInfo>
+ </previouslyLoaded_Datafiles>
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+

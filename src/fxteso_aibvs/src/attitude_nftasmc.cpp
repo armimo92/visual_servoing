@@ -1,11 +1,10 @@
 //Including ROS libraries
 #include "ros/ros.h"
-#include "sensor_msgs/CompressedImage.h"
-#include "sensor_msgs/image_encodings.h"
 #include <std_msgs/Float64.h>
 #include <geometry_msgs/Pose2D.h>
 #include <geometry_msgs/Vector3.h>
 #include <geometry_msgs/Quaternion.h>
+#include <geometry_msgs/Twist.h>
 //Including C++ nominal libraries
 #include <iostream>
 #include <math.h>
@@ -18,6 +17,9 @@ Eigen::Vector3f attitude_vel_des;
 Eigen::Vector3f attitude;
 Eigen::Vector3f attitude_vel;
 Eigen::Vector3f angularDisturbanceEstimates;
+
+Eigen::Vector3f attitude_est;
+Eigen::Vector3f attitude_vel_est;
 
 Eigen::Vector3f error;
 Eigen::Vector3f error_dot;
@@ -47,14 +49,37 @@ float Jxx = 0.0411;
 float Jyy = 0.0478;
 float Jzz = 0.0599;
 
-float yaw_ddot_des;
-void attDesCallback(const geometry_msgs::Quaternion::ConstPtr& attD)
+void attDesEstCallback(const geometry_msgs::Twist::ConstPtr& attD)
 {
-	attitude_des(0) = attD->x;
-	attitude_des(1) = attD->y;
-	attitude_des(2) = attD->z;
-	attitude_vel_des(2) = attD->w;
+	attitude_des(0) = attD->linear.x;
+	attitude_des(1) = attD->linear.y;
+	attitude_des(2) = attD->linear.z;
+
+	attitude_vel_des(0) = attD->angular.x;
+	attitude_vel_des(1) = attD->angular.y;
+	attitude_vel_des(2) = attD->angular.z;
 }
+
+/*void attDesEstCallback(const geometry_msgs::Quaternion::ConstPtr& attD)
+{
+ 	attitude_des(0) = attD->x;
+ 	attitude_des(1) = attD->y;
+ 	attitude_des(2) = attD->z;
+
+ 	
+ 	attitude_vel_des(2) = attD->w;
+}*/
+
+/*void attEstCallback(const geometry_msgs::Twist::ConstPtr& attE)
+{
+	attitude_est(0) = attE->linear.x;
+	attitude_est(1) = attE->linear.y;
+	attitude_est(2) = attE->linear.z;
+
+	attitude_vel_est(0) = attE->angular.x;
+	attitude_vel_est(1) = attE->angular.y;
+	attitude_vel_est(2) = attE->angular.z;
+}*/
 
 void attCallback(const geometry_msgs::Vector3::ConstPtr& att)
 {
@@ -68,18 +93,6 @@ void attVelCallback(const geometry_msgs::Vector3::ConstPtr& attVel)
 	attitude_vel(0) = attVel->x;
 	attitude_vel(1) = attVel->y;
 	attitude_vel(2) = attVel->z;
-}
-
-void yawddotVelCallback(const std_msgs::Float64::ConstPtr& ydd)
-{
-	yaw_ddot_des = ydd->data;
-}
-
-void angDistEstCallback(const geometry_msgs::Vector3::ConstPtr& adE)
-{
-    angularDisturbanceEstimates(0) = adE->x;
-    angularDisturbanceEstimates(1) = adE->y;
-    angularDisturbanceEstimates(2) = adE->z;
 }
 
 float sign(float value)
@@ -110,12 +123,14 @@ int main(int argc, char *argv[])
 	ros::NodeHandle nh;
 	ros::Rate loop_rate(100);
 	
-	ros::Subscriber desired_att_sub = nh.subscribe("desired_attitude",100, &attDesCallback);
+	//ros::Subscriber desired_att_sub = nh.subscribe("desired_attitude",100, &attDesEstCallback);
+	ros::Subscriber desired_attDesEst_sub = nh.subscribe("attitude_desired_estimates",100, &attDesEstCallback);
+	
 	ros::Subscriber quad_attitude_sub = nh.subscribe("quad_attitude",100, &attCallback);
 	ros::Subscriber quad_attitude_velocity_sub = nh.subscribe("quad_attitude_velocity",100, &attVelCallback);
-	ros::Subscriber yaw_ddot_des_sub = nh.subscribe("yaw_ddot_desired",100, &yawddotVelCallback);
-	ros::Subscriber angular_dist_est_sub = nh.subscribe("disturbance_angular_estimates", 100, &angDistEstCallback);
-	
+
+	//ros::Subscriber desired_att_sub = nh.subscribe("attitude_desired_estimates",100, &attDesEstCallback);	
+	//ros::Subscriber quad_attitude_est_sub = nh.subscribe("attitude_estimates",100, &attEstCallback);
 	
 	geometry_msgs::Vector3 quadTorques;
 	geometry_msgs::Vector3 adaptive_gains_att;
@@ -125,7 +140,19 @@ int main(int argc, char *argv[])
 	ros::Publisher adaptive_gain_att_pub = nh.advertise<geometry_msgs::Vector3>("adaptive_gain_attitude",100);
 	ros::Publisher sigma_att_pub = nh.advertise<geometry_msgs::Vector3>("sigma_att",100);
 	
-    xi_1 << 3, 3, 1; //1, 1, 1
+    xi_1 << 3, 3, 2; //1, 1, 1
+    lambda << 2, 2, 2;
+    xi_2 << 2, 2, 2;
+    varpi << 4, 4, 4;
+    vartheta << 3, 3, 3;
+    K1 << 0, 0, 0;
+    K2 << 0.1, 0.1, 0.1;
+    k_reg << 0.1, 0.1, 0.1;
+    kmin << 0.01, 0.01, 0.01;
+    mu << 0.1, 0.1, 0.1;
+	
+
+	/*xi_1 << 2, 2, 1; //1, 1, 1
     lambda << 1.5, 1.5, 1.5;
     xi_2 << 0.2, 0.2, 3;
     varpi << 4, 4, 4;
@@ -133,23 +160,11 @@ int main(int argc, char *argv[])
     K1 << 0, 0, 0;
     K2 << 2, 2, 0.1;
     k_reg << 5, 5, 1;
-    kmin << 3, 3, 0.01;
-    mu << 0.01, 0.01, 0.1;
-
-	// xi_1 << 2, 2, 1; //1, 1, 1
-    // lambda << 1.5, 1.5, 1.5;
-    // xi_2 << 1, 3, 3;
-    // varpi << 4, 4, 4;
-    // vartheta << 3, 3, 3;
-    // K1 << 0, 0, 0;
-    // K2 << 0.01, 0.01, 0.1;
-    // k_reg << 1, 1, 1;
-    // kmin << 3, 3, 1;
-    // mu << 0.1, 0.1, 0.1;
-
-	attitude_vel_des(0) = 0;
-	attitude_vel_des(1) = 0;
-
+    kmin << 3, 3, 3;
+    mu << 0.1, 0.1, 0.1;
+*/
+	//attitude_vel_des(0) = 0;
+ 	//attitude_vel_des(1) = 0;
 	ros::Duration(3.1).sleep();
 	while(ros::ok())
 	{	
@@ -157,6 +172,9 @@ int main(int argc, char *argv[])
 		{	
 			error(i) = attitude(i) - attitude_des(i);
 			error_dot(i) = attitude_vel(i) - attitude_vel_des(i);
+			
+			//error(i) = attitude_est(i) - attitude_des(i);
+			//error_dot(i) = attitude_vel_est(i) - attitude_vel_des(i);
 
 			ss(i) = error(i) + xi_1(i) * powf(std::abs(error(i)),lambda(i)) * sign(error(i)) + xi_2(i) * powf(std::abs(error_dot(i)),(varpi(i)/vartheta(i))) * sign(error_dot(i));
 			
@@ -174,31 +192,19 @@ int main(int argc, char *argv[])
 		}
 		
 
+		/*tau(0) = Jxx * (asmc(0) - (((Jyy-Jzz)/Jxx) * attitude_vel_est(1) * attitude_vel_est(2)) - (vartheta(0)/(varpi(0)*xi_2(0))) * sign(error_dot(0)) * powf(std::abs(error_dot(0)),(2-(varpi(0)/vartheta(0)))) * (1 + xi_1(0) * lambda(0) * powf(std::abs(error(0)),lambda(0)-1)));
+		tau(1) = Jyy * (asmc(1) - (((Jzz-Jxx)/Jyy) * attitude_vel_est(0) * attitude_vel_est(2)) - (vartheta(1)/(varpi(1)*xi_2(1))) * sign(error_dot(1)) * powf(std::abs(error_dot(1)),(2-(varpi(1)/vartheta(1)))) * (1 + xi_1(1) * lambda(1) * powf(std::abs(error(1)),lambda(1)-1)));
+		tau(2) = Jzz * (asmc(2) - (((Jxx-Jyy)/Jzz) * attitude_vel_est(0) * attitude_vel_est(1)) - (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));*/
 
-		// tau(0) = Jxx * (asmc(0) - (((Jyy-Jzz)/Jxx) * attitude_vel(1) * attitude_vel(2)) - (vartheta(0)/(varpi(0)*xi_2(0))) * sign(error_dot(0)) * powf(std::abs(error_dot(0)),(2-(varpi(0)/vartheta(0)))) * (1 + xi_1(0) * lambda(0) * powf(std::abs(error(0)),lambda(0)-1)));
-		// tau(1) = Jyy * (asmc(1) - (((Jzz-Jxx)/Jyy) * attitude_vel(0) * attitude_vel(2)) - (vartheta(1)/(varpi(1)*xi_2(1))) * sign(error_dot(1)) * powf(std::abs(error_dot(1)),(2-(varpi(1)/vartheta(1)))) * (1 + xi_1(1) * lambda(1) * powf(std::abs(error(1)),lambda(1)-1)));
-		// tau(2) = Jzz * (asmc(2) - (((Jxx-Jyy)/Jzz) * attitude_vel(0) * attitude_vel(1)) - (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));
+		tau(0) = Jxx * (asmc(0) - (((Jyy-Jzz)/Jxx) * attitude_vel(1) * attitude_vel(2)) - (vartheta(0)/(varpi(0)*xi_2(0))) * sign(error_dot(0)) * powf(std::abs(error_dot(0)),(2-(varpi(0)/vartheta(0)))) * (1 + xi_1(0) * lambda(0) * powf(std::abs(error(0)),lambda(0)-1)));
+		tau(1) = Jyy * (asmc(1) - (((Jzz-Jxx)/Jyy) * attitude_vel(0) * attitude_vel(2)) - (vartheta(1)/(varpi(1)*xi_2(1))) * sign(error_dot(1)) * powf(std::abs(error_dot(1)),(2-(varpi(1)/vartheta(1)))) * (1 + xi_1(1) * lambda(1) * powf(std::abs(error(1)),lambda(1)-1)));
+		tau(2) = Jzz * (asmc(2) - (((Jxx-Jyy)/Jzz) * attitude_vel(0) * attitude_vel(1)) - (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));
 
-		asmc(0) = asmc(0) - angularDisturbanceEstimates(0);
-        asmc(1) = asmc(1) - angularDisturbanceEstimates(1);
-        asmc(2) = asmc(2) - angularDisturbanceEstimates(2);
+		
 
-		tau(0) = Jxx * (asmc(0) - (vartheta(0)/(varpi(0)*xi_2(0))) * sign(error_dot(0)) * powf(std::abs(error_dot(0)),(2-(varpi(0)/vartheta(0)))) * (1 + xi_1(0) * lambda(0) * powf(std::abs(error(0)),lambda(0)-1)));
-		tau(1) = Jyy * (asmc(1) - (vartheta(1)/(varpi(1)*xi_2(1))) * sign(error_dot(1)) * powf(std::abs(error_dot(1)),(2-(varpi(1)/vartheta(1)))) * (1 + xi_1(1) * lambda(1) * powf(std::abs(error(1)),lambda(1)-1)));
-		tau(2) = Jzz * (asmc(2) - (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));
-
-
-		// for(int j = 0; j <= 2; j++)
-		// {
-		// 	if (tau(j) < -0.3)
-		// 	{
-		// 		tau(j) = -0.3;
-		// 	}
-		// 	else if(tau(j)>0.3)
-		// 	{
-		// 		tau(j) = 0.3;
-		// 	}
-		// }
+		// tau(0) = Jxx * (asmc(0) - (vartheta(0)/(varpi(0)*xi_2(0))) * sign(error_dot(0)) * powf(std::abs(error_dot(0)),(2-(varpi(0)/vartheta(0)))) * (1 + xi_1(0) * lambda(0) * powf(std::abs(error(0)),lambda(0)-1)));
+		// tau(1) = Jyy * (asmc(1) - (vartheta(1)/(varpi(1)*xi_2(1))) * sign(error_dot(1)) * powf(std::abs(error_dot(1)),(2-(varpi(1)/vartheta(1)))) * (1 + xi_1(1) * lambda(1) * powf(std::abs(error(1)),lambda(1)-1)));
+		// tau(2) = Jzz * (asmc(2) - (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));
 
 
 		quadTorques.x = tau(0);

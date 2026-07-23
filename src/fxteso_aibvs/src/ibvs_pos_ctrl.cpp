@@ -288,30 +288,30 @@ int main(int argc, char *argv[])
     ////////////////////////Controller Gains////////////////////////////////////////////////////////////
     imgFeat_des << 0,0,1,0;
     
-    xi_1 << 8, 8, 0.1, 8;  
+    
+    xi_1 << 0.1, 0.1, 2, 0.5;
+    lambda << 2, 2, 2, 1.5;
+    xi_2 << 3, 3, 3, 3;
+    varpi << 4, 4, 4, 4;
+    vartheta << 3, 3, 3, 3;
+    K1 << 0, 0, 0, 0;
+    K2 << 0.00001, 0.00001, 0.05, 0.00001; 
+    k_reg << 0.001, 0.001, 0.02, 0.001;
+    kmin << 0.0001, 0.0001, 0.01, 0.05;
+    mu << 0.1, 0.01, 0.01, 0.01;
+    
+   /* xi_1 << 1, 1, 0.1, 1;  
     lambda << 2, 2, 2, 2;
-    xi_2 << 6, 6, 4, 4;
+    xi_2 << 8, 8, 4, 8;
     varpi << 4, 4, 4, 4;
     vartheta << 3, 3, 3, 3;
     
     K1 << 0, 0, 0, 0;
-    K2 << 0.05, 0.05, 0.05, 0.05; 
-    k_reg << 0.0005, 0.0005, 0.01, 0.02;
+    K2 << 0.001, 0.001, 0.05, 0.001; 
+    k_reg << 0.001, 0.001, 0.01, 0.01;
     kmin << 0.01, 0.01, 0.01, 0.01;
     mu << 0.1, 0.1, 0.1, 0.1;
-
-    // xi_1 << 0.1, 5, 0.1, 2;  //5 para y
-    // lambda << 3, 3, 2, 2;
-    // xi_2 << 3, 4, 4, 4;
-    // varpi << 4, 4, 4, 4;
-    // vartheta << 3, 3, 3, 3;
-    
-    // K1 << 0, 0, 0, 0;
-    // K2 << 0.07, 0.1, 0.05, 0.07; 
-    // k_reg << 0.005, 0.001, 0.01, 0.02;
-    // kmin << 0.01, 0.0001, 0.01, 0.01;
-    // mu << 0.1, 0.1, 0.1, 0.1;
-
+*/
     quad_vel_VF << 0,0,0;
     quad_accel_VF << 0,0,0;
     kappa_dot << 0,0,0,0;
@@ -390,12 +390,12 @@ int main(int argc, char *argv[])
 
         err_dot = Omega*v_imgFeat + kappa;
 
-        error = imgFeat - imgFeat_des;
-        error_dot = Omega*v_imgFeat + kappa;
+        //error = imgFeat - imgFeat_des;
+        //error_dot = Omega*v_imgFeat + kappa;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
         
-        //error = imgFeat_est - imgFeat_des;
-        //error_dot = imgFeat_dot_est;
+        error = imgFeat_est - imgFeat_des;
+        error_dot = imgFeat_dot_est;
 
         //Sliding surfaces and adaptive sliding mode controller
         for (int i = 0; i<=3; i++)
@@ -413,23 +413,9 @@ int main(int argc, char *argv[])
 
             K1(i) = K1(i) + step_size*K1_dot(i);
 
-            asmc(i) = -K1(i) * powf(std::abs(ss(i)),0.5) * sign(ss(i)) - K2(i) * ss(i) ;
+            asmc(i) = -K1(i) * powf(std::abs(ss(i)),0.5) * sign(ss(i)) - K2(i) * ss(i);
         }
         
-        //asmc(1) = asmc(1) - ibvs_dist(1);
-        //asmc(2) = asmc(2) - ibvs_dist(2);       
-        
-         /*      
-        //Control inputs
-        /////////////yaw_rotation///////////////////////
-        ibvs_ctrl_input(3) = (-asmc(3)  + (vartheta(3)/(varpi(3)*xi_2(3))) * sign(error_dot(3)) * powf(std::abs(error_dot(3)),(2-(varpi(3)/vartheta(3)))) * (1 + xi_1(3) * lambda(3) * powf(std::abs(error(3)),lambda(3)-1))); //yaw_ddot
-        /////////////x-axis///////////////////////
-        ibvs_ctrl_input(0) = zD * (-asmc(0)  + ibvs_ctrl_input(3) * imgFeat_est(1) + quad_attVel(2) * imgFeat_dot_est(1) + (vartheta(0)/(varpi(0)*xi_2(0))) * sign(error_dot(0)) * powf(std::abs(error_dot(0)),(2-(varpi(0)/vartheta(0)))) * (1 + xi_1(0) * lambda(0) * powf(std::abs(error(0)),lambda(0)-1)));
-        /////////////y-axis///////////////////////
-        ibvs_ctrl_input(1) = zD * (-asmc(1)  - ibvs_ctrl_input(3) * imgFeat_est(0) - quad_attVel(2) * imgFeat_dot_est(0) + (vartheta(1)/(varpi(1)*xi_2(1))) * sign(error_dot(1)) * powf(std::abs(error_dot(1)),(2-(varpi(1)/vartheta(1)))) * (1 + xi_1(1) * lambda(1) * powf(std::abs(error(1)),lambda(1)-1)));
-        /////////////z-axis///////////////////////
-        ibvs_ctrl_input(2) = zD * (-asmc(2) + (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));        
-        */
 
         //Control inputs
         /////////////yaw_rotation///////////////////////
@@ -442,10 +428,10 @@ int main(int argc, char *argv[])
         /////////////z-axis///////////////////////
         ibvs_ctrl_input(2) = zD * (-asmc(2) + ibvs_dist(2) + (vartheta(2)/(varpi(2)*xi_2(2))) * sign(error_dot(2)) * powf(std::abs(error_dot(2)),(2-(varpi(2)/vartheta(2)))) * (1 + xi_1(2) * lambda(2) * powf(std::abs(error(2)),lambda(2)-1)));        
         
-        
-
-        //  + ibvs_ctrl_input(3) * imgFeat_est(1) + yawRate_desired * imgFeat_dot_est(1)     
-        //    - ibvs_ctrl_input(3) * imgFeat_est(0) - yawRate_desired * imgFeat_dot_est(0)          
+         
+		//       + ibvs_ctrl_input(3) * imgFeat_est(1) + yawRate_desired * imgFeat_dot_est(1)      
+        //       - ibvs_ctrl_input(3) * imgFeat_est(0) - yawRate_desired * imgFeat_dot_est(0) 
+        //            
         //Quad's virtual frame dynamics 
         quad_accel_VF << ibvs_ctrl_input(0), ibvs_ctrl_input(1), ibvs_ctrl_input(2); 
 

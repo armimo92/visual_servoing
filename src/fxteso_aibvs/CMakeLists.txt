@@ -10,6 +10,7 @@ project(fxteso_aibvs)
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   gazebo_msgs
+  mavros_msgs
   geometry_msgs
   image_transport
   nav_msgs
@@ -23,7 +24,7 @@ find_package(OpenCV)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 catkin_package(
-CATKIN_DEPENDS cv_bridge gazebo_msgs geometry_msgs image_transport nav_msgs roscpp sensor_msgs std_msgs tf2
+CATKIN_DEPENDS cv_bridge gazebo_msgs geometry_msgs image_transport nav_msgs roscpp sensor_msgs std_msgs tf2 mavros_msgs
 )
 
 include_directories(
@@ -65,6 +66,15 @@ target_link_libraries(target_position_node	${catkin_LIBRARIES})
 add_executable(external_disturbances_node src/disturbances.cpp)
 target_link_libraries(external_disturbances_node	${catkin_LIBRARIES})
 
-#FXTESO Attitude
-add_executable(fixed_eso_att_node src/fixed_eso_att.cpp)
-target_link_libraries(fixed_eso_att_node	${catkin_LIBRARIES})
+#TD_Attitude
+add_executable(td_attitude_node src/td_attitude.cpp)
+target_link_libraries(td_attitude_node ${catkin_LIBRARIES})
+
+#TD Attitude desired
+add_executable(td_attitude_desired_node src/td_attitude_desired.cpp)
+target_link_libraries(td_attitude_desired_node ${catkin_LIBRARIES})
+
+#Send data to PX4
+#add_executable(send2px4_node src/send2px4.cpp)
+#target_link_libraries(send2px4_node ${catkin_LIBRARIES})
+

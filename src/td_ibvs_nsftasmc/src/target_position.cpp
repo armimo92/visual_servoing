@@ -300,7 +300,7 @@ int main(int argc, char** argv)
 		}
 		else if (t>=140 && t<145)
 		{
-			xp = -0.25;
+			xp = -0.3;
 			yp = 0;
 			yawRate = 0;
 		}

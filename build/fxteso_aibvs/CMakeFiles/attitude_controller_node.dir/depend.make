@@ -4,6 +4,7 @@
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /home/armando/Documents/visual_servoing_ws/src/fxteso_aibvs/src/attitude_nftasmc.cpp
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/geometry_msgs/Pose2D.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/geometry_msgs/Quaternion.h
+fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/geometry_msgs/Twist.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/geometry_msgs/Vector3.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/ros/advertise_service_options.h
@@ -61,10 +62,7 @@ fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o:
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/ros/wall_timer.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/ros/wall_timer_options.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
-fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/sensor_msgs/CompressedImage.h
-fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/sensor_msgs/image_encodings.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/std_msgs/Float64.h
-fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/std_msgs/Header.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 fxteso_aibvs/CMakeFiles/attitude_controller_node.dir/src/attitude_nftasmc.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 

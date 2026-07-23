@@ -154,16 +154,31 @@ int main(int argc, char *argv[])
     x3_hat_dot << 0, 0, 0, 0;
 
     // //GAINS WITH MODEL UNCERTAINTIES
-    gamma1 << 8, 8, 8, 8;
-    gamma2 << 14, 14, 16, 16;
-    gamma3 << 4, 4, 21, 12;
-    gamma4 << 0.001, 0.001, 0.01, 0.01;
+   	gamma1 << 5, 5, 8, 8;
+    gamma2 << 12, 12, 16, 20;
+    gamma3 << 4, 4, 21, 21;
+    gamma4 << 0.001, 0.001, 0.01, 0.001;
+   
+   /*
+    16, 16, 16, 16, 16, 16;
+    G2 << 150, 150, 150, 150, 150, 150;
+    G3 << 450, 450, 450, 450, 450, 450;
+    G4 << 0.01, 0.01, 0.01, 0.01, 0.01, 0.01;
+   */
+	
+     /*
+     
+     gamma1 << 5, 5, 8, 8;
+   gamma2 << 12, 12, 16, 16;
+   gamma3 << 1, 1, 21, 12;
+   gamma4 << 0.001, 0.001, 0.01, 0.01;
 
+     */	
     // //GAINS WITHOUT MODEL UNCERTAINTIES
-    // gamma1 << 8, 8, 8, 8;
-    // gamma2 << 16, 16, 16, 16;
-    // gamma3 << 4, 4, 21, 12;
-    // gamma4 << 0.001, 0.001, 0.01, 0.01;
+    //gamma1 << 8, 8, 8, 8;
+    //gamma2 << 16, 16, 16, 16;
+    //gamma3 << 4, 4, 21, 12;
+    //gamma4 << 0.001, 0.001, 0.01, 0.01;
 
     
     mu1 = gamma1;
@@ -214,7 +229,7 @@ int main(int argc, char *argv[])
             if(i == 0)
             {   
                 alpha = 0.7;
-                beta = 1.2;
+                beta = 1.1;
 
                 alpha2 = (alpha + 1)/2;
                 beta2 = (beta + 1)/2;
@@ -228,7 +243,7 @@ int main(int argc, char *argv[])
             else if (i == 1)
             {
                 alpha = 0.7;
-                beta = 1.2;
+                beta = 1.1;
 
                 alpha2 = (alpha + 1)/2;
                 beta2 = (beta + 1)/2;
@@ -241,8 +256,8 @@ int main(int argc, char *argv[])
             }
             else if (i == 2)
             {
-                alpha = 0.6;
-                beta = 1.2;
+                alpha = 0.7;
+                beta = 1.1;
 
                 alpha2 = (alpha + 1)/2;
                 beta2 = (beta + 1)/2;
@@ -255,7 +270,7 @@ int main(int argc, char *argv[])
             else if (i == 3)
             {
                 alpha = 0.7;
-                beta = 1.2;
+                beta = 1.1;
 
                 alpha2 = (alpha + 1)/2;
                 beta2 = (beta + 1)/2;

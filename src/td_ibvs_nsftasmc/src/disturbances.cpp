@@ -34,13 +34,8 @@ int main(int argc, char *argv[])
 
     ifstream myFile;
     string line;
-    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/lemniscate/dist_220_moderate.csv"); //Lemniscate
-    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/lemniscate/dist_2_5_2_5_0_moderate.csv");
-    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/dist_target/dist_330_moderate.csv");
-    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/circle/dist_330_moderate.csv");
-    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/straight_line/dist_330_moderate.csv");
-    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/new_dist15_v2.csv");
-    myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/new_dist20.csv");
+    myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/dist1.csv");
+    //myFile.open("/home/armando/Documents/visual_servoing_ws/src/td_ibvs_nsftasmc/src/csv_files/new_dist20.csv");
     getline(myFile, line);
     	
     disturbances_var.x = 0;

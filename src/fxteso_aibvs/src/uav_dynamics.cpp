@@ -118,10 +118,8 @@ int main(int argc, char **argv)
 		 0, 0.0478, 0,
 		 0, 0, 0.0599;
 	
-	//linear_position << -24.1,-3.2,-4; //Recta
-	//linear_position << -0.1,-2.8,-4; //Circulo
-	//linear_position << -4.7,-0.2,-4; //Lemniscata
-	linear_position << -14.9,0.1,-4; // Target perturbado
+	//linear_position << 0.1,0.1,-4; 
+	linear_position << -14.9,0.1,-4;
 	
 	attitude_position << 0,0,0;
 
